@@ -11,40 +11,59 @@ import java.io.IOException;
 
 public class LoginPage extends BasePage {
 
-    private final By enterEmail = By.id("ap_email");
-    private final By continueBtn = By.id("continue");
-    private final By enterPassword = By.id("ap_password");
-    private final By signInBtn = By.id("signInSubmit");
+    private final By enterUser = By.id("user-name");
+    private final By enterPassword = By.id("password");
+    private final By signInBtn = By.id("login-button");
 
-    private final By screenshoot = By.id("a-page");
+    private final By screenshoot = By.id("header_container");
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    public void loginOnTheAccount(){
-
-        driver.findElement(enterEmail).sendKeys("**email**");
-        driver.findElement(continueBtn).click();
-        driver.findElement(enterPassword).sendKeys("**password**");
+    public void loginOnTheAccount() {
+        driver.findElement(enterUser).clear();
+        driver.findElement(enterUser).sendKeys("standard_user");
+        driver.findElement(enterPassword).clear();
+        driver.findElement(enterPassword).sendKeys("secret_sauce");
         driver.findElement(signInBtn).click();
 
-        String expected ="Hello, Tad";
-        String actual = driver.findElement(By.id("nav-link-accountList-nav-line-1")).getText();
+        String expected = "Swag Labs";
+        String actual = driver.findElement(By.cssSelector(".app_logo")).getText();
 
-        Assert.assertEquals(expected,actual);
-        System.out.println( "excpected:  " + expected   +   " actual: "  +  actual );
+        Assert.assertEquals(expected, actual);
+        System.out.println("expected:  " + expected + " actual: " + actual);
 
 
     }
+
+    public void unsuccessfuLoginIncorrectUser() {
+
+        driver.findElement(enterUser).sendKeys("incorrect_user");
+        driver.findElement(enterPassword).sendKeys("secret_sauce");
+        driver.findElement(signInBtn).click();
+        boolean isVisibleErrorMessage = driver.findElement(By.cssSelector(".error-button")).isDisplayed();
+
+        Assert.assertTrue(isVisibleErrorMessage);
+    }
+
+    public void unsuccessfuLoginIncorrectPassword() {
+
+        driver.findElement(enterUser).clear();
+        driver.findElement(enterUser).sendKeys("standard_user");
+        driver.findElement(enterPassword).clear();
+        driver.findElement(enterPassword).sendKeys("incorrect_password");
+        driver.findElement(signInBtn).click();
+        boolean isVisibleErrorMessage = driver.findElement(By.cssSelector(".error-button")).isDisplayed();
+
+        Assert.assertTrue(isVisibleErrorMessage);
+    }
+
     public void takeScreenshot() throws IOException {
         File source = driver.findElement(screenshoot).getScreenshotAs(OutputType.FILE);
         File destination = new File("loginScreenShot.png");
         FileUtils.copyFile(source, destination);
     }
-
-
-
 
 
 }

@@ -7,13 +7,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 
 public class ConfigDriverManager {
-    private static WebDriver driver;
 
     public WebDriver initializerDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver(options);
         return driver;
     }
 
