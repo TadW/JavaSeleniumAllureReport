@@ -12,7 +12,7 @@ public class TestCases extends BaseTest {
     public void createAccount() throws IOException {
 
         HomePage homePage = new HomePage(driver);
-        RegisterPage registerPage = homePage.clickNewCostumerLink();
+        RegisterPage registerPage = homePage.clickNewCoustomerLink();
         registerPage.clickcreateAccountSubmit();
         registerPage.fillOutRegistrationForm();
 

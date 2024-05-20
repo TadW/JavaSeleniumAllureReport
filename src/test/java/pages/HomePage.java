@@ -13,7 +13,7 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    public RegisterPage clickNewCostumerLink() {
+    public RegisterPage clickNewCoustomerLink() {
         driver.findElement(newCostumerBtn).click();
         return new RegisterPage(driver);
     }
