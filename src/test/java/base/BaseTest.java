@@ -46,7 +46,8 @@ public class BaseTest {
         extentReports = new ExtentReports();
         extentReports.attachReporter(sparkReporter);
         sparkReporter.config().setTheme(Theme.DARK);
-        extentReports.setSystemInfo("", System.getProperty("os.name"));
+        extentReports.createTest("Test Failed! <i class='fa fa-frown-o'></i>")
+                .fail(new RuntimeException("A runtime exception occurred!"));
     }
 
     @AfterSuite

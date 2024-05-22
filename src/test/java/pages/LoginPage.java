@@ -43,7 +43,7 @@ public class LoginPage extends BasePage {
         driver.findElement(enterPassword).clear();
         driver.findElement(enterPassword).sendKeys("secret_sauce");
         driver.findElement(signInBtn).click();
-        boolean isVisibleErrorMessage = driver.findElement(By.cssSelector(".error-button")).isDisplayed();
+        boolean isVisibleErrorMessage = driver.findElement(By.cssSelector(".error-buttonn")).isDisplayed();
         extentTest.info("unsuccessfu login incorrect user");
 
         Assert.assertTrue(isVisibleErrorMessage);

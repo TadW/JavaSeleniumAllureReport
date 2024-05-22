@@ -1,9 +1,10 @@
 
-This is example project of using Selenium, Java and Page Object Pattern. These are example test cases that can be run on the amazon.com website.
+# **Spark Report**
+<img src=images/1.png>
+<img src=images/2.png>
+<img src=images/5failed.png>
 
-
-
-
-<img src=images/createAccount.jpg>
-
-<img src=images/login.jpg>
+# **TestNG Report**
+<img src=images/4.png>
+<img src=images/3.png>
+<img src=images/6failed.png>

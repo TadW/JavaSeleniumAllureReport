@@ -15,7 +15,7 @@
             </class>
         </classes>
     </test>
-    <test name="Functionality Tests">
+    <test name="Functionality Tests Login">
         <parameter name="browserName" value="Chrome"/>
         <parameter name="author" value="Tad"/>
         <classes>
