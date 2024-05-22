@@ -1,13 +1,11 @@
 package pages;
 
 import base.BasePage;
-import org.apache.commons.io.FileUtils;
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
-import java.io.File;
-import java.io.IOException;
+import org.testng.Assert;
+
+import static base.BaseTest.extentTest;
 
 public class LoginPage extends BasePage {
 
@@ -15,7 +13,6 @@ public class LoginPage extends BasePage {
     private final By enterPassword = By.id("password");
     private final By signInBtn = By.id("login-button");
 
-    private final By screenshoot = By.id("header_container");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -27,24 +24,30 @@ public class LoginPage extends BasePage {
         driver.findElement(enterPassword).clear();
         driver.findElement(enterPassword).sendKeys("secret_sauce");
         driver.findElement(signInBtn).click();
+        extentTest.info("successful login").getStatus();
 
         String expected = "Swag Labs";
         String actual = driver.findElement(By.cssSelector(".app_logo")).getText();
 
         Assert.assertEquals(expected, actual);
         System.out.println("expected:  " + expected + " actual: " + actual);
+        extentTest.pass("Assertion is passed");
 
 
     }
 
     public void unsuccessfuLoginIncorrectUser() {
 
+        driver.findElement(enterUser).clear();
         driver.findElement(enterUser).sendKeys("incorrect_user");
+        driver.findElement(enterPassword).clear();
         driver.findElement(enterPassword).sendKeys("secret_sauce");
         driver.findElement(signInBtn).click();
         boolean isVisibleErrorMessage = driver.findElement(By.cssSelector(".error-button")).isDisplayed();
+        extentTest.info("unsuccessfu login incorrect user");
 
         Assert.assertTrue(isVisibleErrorMessage);
+        extentTest.pass("Assertion is passed");
     }
 
     public void unsuccessfuLoginIncorrectPassword() {
@@ -55,14 +58,10 @@ public class LoginPage extends BasePage {
         driver.findElement(enterPassword).sendKeys("incorrect_password");
         driver.findElement(signInBtn).click();
         boolean isVisibleErrorMessage = driver.findElement(By.cssSelector(".error-button")).isDisplayed();
+        extentTest.info("unsuccessfu login incorrect password");
 
         Assert.assertTrue(isVisibleErrorMessage);
-    }
-
-    public void takeScreenshot() throws IOException {
-        File source = driver.findElement(screenshoot).getScreenshotAs(OutputType.FILE);
-        File destination = new File("loginScreenShot.png");
-        FileUtils.copyFile(source, destination);
+        extentTest.pass("Assertion is passed");
     }
 
 

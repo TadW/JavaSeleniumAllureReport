@@ -1,0 +1,38 @@
+<suite name="RegressionSuite">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+    <test name="Smoke Test">
+        <parameter name="browserName" value="Chrome"/>
+        <parameter name="author" value="Tad"/>
+        <classes>
+            <class name="LoginPageTests">
+                <methods>
+                    <include name="successfullLoginCorrectCredentials"/>
+                    <exclude name="unsuccessfuLoginIncorrectPassword"/>
+                    <exclude name="unsuccessfuLoginIncorrectUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Functionality Tests">
+        <parameter name="browserName" value="Chrome"/>
+        <parameter name="author" value="Tad"/>
+        <classes>
+            <class name="LoginPageTests"/>
+            <methods>
+                <exclude name="successfullLoginCorrectCredentials"/>
+            </methods>
+        </classes>
+    </test>
+    <test name="Functionality Tests Order">
+        <parameter name="browserName" value="Chrome"/>
+        <parameter name="author" value="Tad"/>
+        <classes>
+            <class name="OrderPageTests"/>
+<!--            <methods>-->
+<!--                <exclude name=""/>-->
+<!--            </methods>-->
+        </classes>
+    </test>
+</suite>
