@@ -13,5 +13,4 @@ public class OrderPageTests extends BaseTest {
         orderPage.paymentAndOrder();
 
     }
-
 }

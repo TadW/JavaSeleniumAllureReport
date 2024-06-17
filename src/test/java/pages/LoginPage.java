@@ -63,6 +63,4 @@ public class LoginPage extends BasePage {
         Assert.assertTrue(isVisibleErrorMessage);
         extentTest.pass("Assertion is passed");
     }
-
-
 }
