@@ -23,7 +23,6 @@ public class OrderPage extends BasePage {
         super(driver);
     }
 
-
     public void paymentAndOrder() {
         driver.findElement(addToCart).click();
         driver.findElement(gotoShoppingCart).click();
@@ -43,7 +42,6 @@ public class OrderPage extends BasePage {
         System.out.println("expected: " + expected + "    actual: " + actual);
         Assert.assertTrue(isVisibleMessage);
         extentTest.pass("Assertion is passed");
-
 
     }
 }
