@@ -26,5 +26,4 @@ public class LoginPageTests extends BaseTest {
         loginPage.loginOnTheAccount();
 
     }
-
 }

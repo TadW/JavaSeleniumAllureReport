@@ -25,6 +25,7 @@
             </methods>
         </classes>
     </test>
+    
     <test name="Functionality Tests Order">
         <parameter name="browserName" value="Chrome"/>
         <parameter name="author" value="Tad"/>

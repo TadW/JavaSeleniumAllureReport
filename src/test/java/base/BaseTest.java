@@ -54,5 +54,4 @@ public class BaseTest {
     public void generateReport() {
         extentReports.flush();
     }
-
 }

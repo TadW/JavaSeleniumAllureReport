@@ -33,7 +33,6 @@ public class LoginPage extends BasePage {
         System.out.println("expected:  " + expected + " actual: " + actual);
         extentTest.pass("Assertion is passed");
 
-
     }
 
     public void unsuccessfuLoginIncorrectUser() {

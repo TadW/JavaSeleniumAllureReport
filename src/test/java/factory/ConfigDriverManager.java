@@ -15,5 +15,4 @@ public class ConfigDriverManager {
         WebDriver driver = new ChromeDriver(options);
         return driver;
     }
-
 }
